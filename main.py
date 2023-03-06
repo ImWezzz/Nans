@@ -39,6 +39,12 @@ async def on_guild_join(guild: discord.Guild) -> None:
 
         Ahora estoy en: {len(bot.guilds)} servers con {len(bot.users)} users
     """)
+    
+@bot.check
+async def guild_only(ctx: commands.Context):
+    if ctx.guild is None:
+        return
+    return ctx.guild != None
 
 if __name__ == "__main__":
     asyncio.run(main())
