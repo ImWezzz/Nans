@@ -23,7 +23,7 @@ async def main():
         if file.endswith('.py'):
             await bot.load_extension(f'cogs.{file[:-3]}')
     async with bot:
-        await bot.start("MTAxNTQ2MTUzNDcwMjUxNDI4Ng.G7vCTT.Y1zKcRvM0U7J-zpSQgQDJm7axYJryY_rZpiVs8")
+        await bot.start("TOKEN")
 
 @bot.event
 async def on_guild_join(guild: discord.Guild) -> None:
