@@ -23,7 +23,7 @@ class Listeners(commands.Cog):
     
     @commands.Cog.listener()
     async def on_ready(self):
-        print(f"Successfully connected! \n In: **{self.bot.user.name}** \n Servers: **{len(self.bot.guilds)}** \n Users: **{len(self.bot.users)}** \n Commands: **{len(self.bot.commands)}**")
+        print(f"Successfully connected! \n In: {self.bot.user.name} \n Servers: {len(self.bot.guilds)} \n Users: {len(self.bot.users)} \n Commands: {len(self.bot.commands)} \n Ping: {round(self.bot.latency, 2) * 1000}ms")
         await self.bot.tree.sync()
 
 # setup
