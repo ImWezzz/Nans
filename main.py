@@ -22,7 +22,6 @@ async def main():
     for file in os.listdir('./cogs'):
         if file.endswith('.py'):
             await bot.load_extension(f'cogs.{file[:-3]}')
-    #await bot.load_extension('jishaku')
     async with bot:
         await bot.start("os.getenv('TOKEN')")
     
