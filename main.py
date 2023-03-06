@@ -23,7 +23,22 @@ async def main():
         if file.endswith('.py'):
             await bot.load_extension(f'cogs.{file[:-3]}')
     async with bot:
-        await bot.start("TOKEN")
+        await bot.start("MTAxNTQ2MTUzNDcwMjUxNDI4Ng.G7vCTT.Y1zKcRvM0U7J-zpSQgQDJm7axYJryY_rZpiVs8")
+
+@bot.event
+async def on_guild_join(guild: discord.Guild) -> None:
+    channel = await bot.fetch_channel(1057367206066921582)
+
+    await channel.send(f"""\n Name: {guild.name}
+        ID: {guild.id}
+        Owner: <@{guild.owner_id}>
+        Created: <t:{round(guild.created_at.timestamp())}> <t:{round(guild.created_at.timestamp())}:D>
+        Members: {guild.member_count} 
+        Channels: {len(guild.channels)}
+        Roles: {len(guild.roles)} 
+
+        Ahora estoy en: {len(bot.guilds)} servers con {len(bot.users)} users
+    """)
 
 if __name__ == "__main__":
     asyncio.run(main())
