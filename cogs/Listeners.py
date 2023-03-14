@@ -9,15 +9,17 @@ class Listeners(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(f"Missing **{error.param.name}** parameter")
         elif isinstance(error, commands.MemberNotFound):
-            await ctx.send(f"User not found or invalid")
+            await ctx.send(f"Member not found")
+        elif isinstance(error, commands.UserNotFound):
+            await ctx.send(f"User not found")
         elif isinstance(error, commands.MissingPermissions):
-            await ctx.send(f"Missing **{', '.join(list(map(lambda s: f'**`{s}`**', error.missing_permissions)))}** permissions")
+            await ctx.send(f"Missing **{', '.join(list(map(lambda s: f'`{s}`', error.missing_permissions)))}** permissions")
         elif isinstance(error, commands.ChannelNotFound):
             await ctx.send(f"Channel not found")
         elif isinstance(error, commands.RoleNotFound):
             await ctx.send(f"Role not found")
         elif isinstance(error, commands.BotMissingPermissions):
-            await ctx.send(text=f"I missing **{', '.join(list(map(lambda s: f'**`{s}`**', error.missing_permissions)))}** permissions")
+            await ctx.send(f"I missing **{', '.join(list(map(lambda s: f'`{s}`', error.missing_permissions)))}** permissions")
         else:
             raise error
     
