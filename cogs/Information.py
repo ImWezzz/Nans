@@ -9,12 +9,12 @@ class Information(commands.Cog):
 
             # ----> User <----
 
-    @commands.hybrid_group(name="user")
-    async def user(self, ctx: commands.Context):
-        """Show user information"""
+    #@commands.hybrid_group(name="user")
+    #async def user(self, ctx: commands.Context):
+    #    """Show user information"""
 
     # Info
-    @user.command(name="info", aliases=["whois"])
+    @commands.hybrid_command(name="userinfo")
     @discord.app_commands.describe(member="Select a member")
     async def userinfo(self, ctx: commands.Context, member: discord.Member = None): 
         """Display user information"""
@@ -28,7 +28,7 @@ class Information(commands.Cog):
         await ctx.send(embed=embed)
 
     # Avatar 
-    @user.command(name="avatar", aliases=["pfp"])
+    @commands.hybrid_command(name="avatar", aliases=["pfp"])
     @discord.app_commands.describe(member="Select a member")
     async def avatar(self, ctx: commands.Context, member: discord.Member = None):
         """Get a user avatar"""
@@ -42,7 +42,7 @@ class Information(commands.Cog):
         await ctx.send(embed=embed) 
 
     # Roles 
-    @user.command(name="roles")
+    @commands.hybrid_command(name="roles")
     @discord.app_commands.describe(member="Select a member")
     async def roles(self, ctx: commands.Context, member: discord.Member = None):
         """Get user roles"""
@@ -57,11 +57,13 @@ class Information(commands.Cog):
             
             # ----> Server <----
         
-    @commands.hybrid_group(name="server")
-    async def server(self, ctx: commands.Context):
-            """Show server information"""
+    #@commands.hybrid_group(name="server")
+    #async def server(self, ctx: commands.Context):
+    #        """Show server information"""
+    
+        # Info
 
-    @server.command(name="info")
+    @commands.hybrid_command(name="serverinfo")
     async def serverinfo(self, ctx: commands.Context):
         """Get the server info"""
         await ctx.defer()
@@ -72,7 +74,8 @@ class Information(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @server.command(name="icon")
+    # Icon
+    @commands.hybrid_command(name="icon")
     async def icon(self, ctx: commands.Context):
         """Get the server icon"""
         if not ctx.guild.icon:
@@ -84,7 +87,8 @@ class Information(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @server.command(name="role")
+    # Role
+    @commands.hybrid_command(name="role")
     @discord.app_commands.describe(role='Choose the role')
     async def role(self, ctx: commands.Context, role: discord.Role):
         """Get a role info"""
@@ -96,7 +100,8 @@ class Information(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @server.command(name="channel")
+    # Channel
+    @commands.hybrid_command(name="channel")
     @discord.app_commands.describe(channel='Choose the channel')
     async def channel(self, ctx: commands.Context, channel: discord.abc.GuildChannel = None):
         """Get a channel info"""
@@ -111,18 +116,18 @@ class Information(commands.Cog):
 
             # ----> Bot <----
 
-    @commands.hybrid_group(name="bot")
-    async def bot(self, ctx: commands.Context):
-            """Show bot information"""
+    #@commands.hybrid_group(name="bot")
+    #async def bot(self, ctx: commands.Context):
+    #        """Show bot information"""
 
     # Ping
-    @bot.command(name="ping", aliases=["latency"])
+    @commands.hybrid_command(name="ping", aliases=["latency"])
     async def ping(self, ctx: commands.Context):
         """Show my ping"""
         await ctx.send(f"My ping is **{round(self.bot.latency, 2) * 1000}ms**")
     
     # Info
-    @bot.command(name="info", aliases=["stats"])
+    @commands.hybrid_command(name="botinfo", aliases=["stats"])
     async def stats(self, ctx: commands.Context):
         """Get the bot info"""
         await ctx.defer()
