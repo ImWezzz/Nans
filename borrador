@@ -1,8 +1,0 @@
-    @commands.is_owner()
-    @commands.hybrid_command(name='reload')
-    async def _reload(self, ctx: commands.Context, cog: str):
-        await self.bot.reload_extension(f'cogs.{cog}')
-        if os.path.exists(f'./cogs/{cog}.py'):
-           return await ctx.send(f'**cogs.{cog}** was reloaded correctly! <:teamo:1013624276429062216>')
-        else:
-            ctx.send('This is not a cog, ok?')
