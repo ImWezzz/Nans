@@ -11,7 +11,7 @@ async def get_prefix(client, message: discord.Message):
     return db.get(f"{message.guild.id}.prefix", "guilds") or "w!" 
 
 bot = commands.Bot(
-    #help_command=None,
+    help_command=None,
     case_insensitive=True,
     command_prefix=get_prefix,
     owner_ids=[664261902712438784, 759233882926350346],
