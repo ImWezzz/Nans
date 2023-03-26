@@ -42,6 +42,23 @@ class Util(commands.Cog):
         embed.description = f"If you want to invite me to your server use this link \n Invite: https://dsc.gg/willow-bot \n Support server: https://discord.gg/ynNWwPRgv2"
 
         await ctx.send(embed=embed)
+        
+    # ----> Image <----
+
+    @commands.hybrid_group(name="image")
+    async def image(self, ctx: commands.Context):
+        """Create images OMG"""
+
+    # Discordjs
+    @image.command(name="discordjs")
+    @discord.app_commands.describe(text="Text")
+    async def discordjs(self, ctx: commands.Context, text: str):
+        """Make a Discord.JS image"""
+
+        embed = discord.Embed()
+        embed.set_image(url=f"https://api.munlai.fun/image/discordjs?text={text[0:20]}")
+
+        await ctx.send(embed=embed)
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Util(bot))
