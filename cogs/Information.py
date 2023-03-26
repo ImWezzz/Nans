@@ -20,10 +20,12 @@ class Information(commands.Cog):
         """Display user information"""
         if member is None:
             member = ctx.author
+        if member.activity is None:
+            print(f"{member.activity} tiene esa mierda")
         embed = discord.Embed(colour=1399944)
         embed.set_thumbnail(url=member.display_avatar)
         embed.set_author(name=f"{member.name}#{member.discriminator}", icon_url=member.display_avatar)
-        embed.description = f"\n **Information** \n**User:** {member.name}#{member.discriminator} `{member.id}` \n **Nick:** {member.nick} \n **Avatar:** [Click aquí](https://discord.com/users/{member.id}) \n\n **Created:** <t:{round(member.created_at.timestamp())}:R> \n **Joined:** <t:{round(member.joined_at.timestamp())}:R>"
+        embed.description = f"**ID:** {member.id} \n **Nickname:** {member.nick} \n **Status:** {member.status} \n **Bot:** {member.bot} \n **Color:** {member.color} \n\n **・Joined**\n **Discord:** <t:{round(member.created_at.timestamp())}:R> \n **Server:** <t:{round(member.joined_at.timestamp())}:R>"
 
         await ctx.send(embed=embed)
 
@@ -134,7 +136,7 @@ class Information(commands.Cog):
         embed = discord.Embed(colour=1399944)
         embed.set_thumbnail(url=self.bot.user.display_avatar)
         embed.title = f"{ctx.bot.user.name}'s stats"
-        embed.description = f"• **Stats** \n **Servers:** {len(self.bot.guilds)} \n **Users:** {len(self.bot.users)} \n **Commands:** {len(self.bot.commands)} \n\n  • **Development** \n **Discord.py:** {discord.__version__} \n **Python:** {sys.version.split(' ')[0]} \n\n • **Developer** \n [Wez#9777](https://discord.com/users/759233882926350346) \n\n • **Links** \n [Invite](https://dsc.gg/willow-bot) • [Support](https://discord.gg/ynNWwPRgv2)"
+        embed.description = f"• **Stats** \n **Servers:** {len(self.bot.guilds)} \n **Users:** {len(self.bot.users)} \n **Commands:** {len(self.bot.commands)} \n\n  • **Development** \n **Discord.py:** {discord.__version__} \n **Python:** {sys.version.split(' ')[0]} \n\n • **Developer** \n [Wez#9777](https://discord.com/users/759233882926350346) \n\n • **Links** \n [Invite](https://dsc.gg/willow-bot) • [Support](https://discord.gg/ynNWwPRgv2) • [Website](https://willowbot.munlai.fun)"
 
         await ctx.send(embed=embed)
 
