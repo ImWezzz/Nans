@@ -7,7 +7,7 @@ class Listeners(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx: commands.Context, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(f"Missing **{error.param.name}** parameter")
+            await ctx.send(f"Missing parameters: **{error.param.name}**")
         elif isinstance(error, commands.MemberNotFound):
             await ctx.send(f"Member not found")
         elif isinstance(error, commands.UserNotFound):
