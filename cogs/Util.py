@@ -31,6 +31,17 @@ class Util(commands.Cog):
     async def say(self, ctx: commands.Context, *, text: str):
         """I repeat your message"""
         await ctx.send(content=text)
+        
+     # Invite
+    @commands.hybrid_command(name="invite")
+    async def say(self, ctx: commands.Context):
+        """Get my invite"""
+        embed = discord.Embed(colour=14474460)
+        embed.set_thumbnail(url=self.bot.user.display_avatar)
+        embed.title = "My invitation"
+        embed.description = f"If you want to invite me to your server use this link \n Invite: https://dsc.gg/willow-bot \n Support server: https://discord.gg/ynNWwPRgv2"
+
+        await ctx.send(embed=embed)
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(Util(bot))
