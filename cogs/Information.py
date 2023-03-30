@@ -136,7 +136,7 @@ class Information(commands.Cog):
         embed = discord.Embed(colour=1399944)
         embed.set_thumbnail(url=self.bot.user.display_avatar)
         embed.title = f"{ctx.bot.user.name}'s stats"
-        embed.description = f"• **Stats** \n **Servers:** {len(self.bot.guilds)} \n **Users:** {len(self.bot.users)} \n **Commands:** {len(self.bot.commands)} \n\n  • **Development** \n **Discord.py:** {discord.__version__} \n **Python:** {sys.version.split(' ')[0]} \n\n • **Developer** \n [Wez#9777](https://discord.com/users/759233882926350346) \n\n • **Links** \n [Invite](https://dsc.gg/willow-bot) • [Support](https://discord.gg/ynNWwPRgv2) • [Website](https://willowbot.munlai.fun)"
+        embed.description = f"-> **Stats** \n\n **Servers:** {len(self.bot.guilds)} \n **Users:** {len(self.bot.users)} \n **Commands:** {len(self.bot.commands)} \n\n **Developer:** [Wez#9777](https://discord.com/users/759233882926350346) \n **Discord.py version:** {discord.__version__} \n **Python version:** {sys.version.split(' ')[0]} \n\n -> **Links** \n [Invite](https://dsc.gg/willow-bot) \n [Support](https://discord.gg/ynNWwPRgv2) \n [Website](https://willowbot.munlai.fun) \n [Vote for me](https://top.gg/bot/779489579392040960/vote)"
 
         await ctx.send(embed=embed)
 
