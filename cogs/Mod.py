@@ -122,7 +122,5 @@ class Mod(commands.Cog):
             db.set(f"{ctx.guild.id}.prefix", new_prefix, "guilds")
             await ctx.send(f"**Prefix channged to:** `{new_prefix}`")
 
-        # Clear
-
 async def setup(bot: commands.Bot):
     await bot.add_cog(Mod(bot))
