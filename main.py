@@ -27,22 +27,6 @@ async def main():
     async with bot:
         await bot.start("TOKEN")
 
-@bot.event
-async def on_guild_join(guild: discord.Guild) -> None:
-    channel = await bot.fetch_channel(1057367206066921582)
-
-    await channel.send(f"""
-        > Name: {guild.name}
-        > ID: {guild.id}
-        > Owner: <@{guild.owner_id}>
-        > Created: <t:{round(guild.created_at.timestamp())}> <t:{round(guild.created_at.timestamp())}:D>
-        > Members: {guild.member_count} 
-        > Channels: {len(guild.channels)}
-        > Roles: {len(guild.roles)} 
-
-        • Ahora estoy en: {len(bot.guilds)} servers con {len(bot.users)} users
-    """)
-
 @bot.check
 async def guild_only(ctx: commands.Context):
     if ctx.guild is None:
