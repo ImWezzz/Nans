@@ -7,8 +7,8 @@ db = Database(path="/database", tables=["main", "guilds", "users"])
 
 async def get_prefix(client, message: discord.Message):
     if not message.guild:
-        return 'w!'
-    return db.get(f"{message.guild.id}.prefix", "guilds") or "w!" 
+        return '-'
+    return db.get(f"{message.guild.id}.prefix", "guilds") or "-" 
 
 bot = commands.Bot(
     help_command=None,
@@ -17,7 +17,7 @@ bot = commands.Bot(
     owner_ids=[664261902712438784, 759233882926350346],
     strip_after_prefix=True,
     intents=discord.Intents.all(),
-    activity=discord.Activity(type=discord.ActivityType.listening, name="Wez ;3")
+    activity=discord.Activity(type=discord.ActivityType.listening, name="-help")
 )
 
 async def main():
